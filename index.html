@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EmojiTherapist 🫂 - AI Therapy for Gen Z</title>
+    <style>
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --dark-bg: #0a0a0a;
+        }
+        body {
+            background: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        /* Glitch text effect */
+        .glitch {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.05em 0 var(--neon-blue);
+            animation: glitch 2s infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.05em 0 var(--neon-blue); }
+            15% { text-shadow: -0.05em -0.05em 0 var(--neon-pink), 0.05em 0.05em 0 var(--neon-blue); }
+            50% { text-shadow: 0.05em 0.05em 0 var(--neon-pink), 0em 0em 0 var(--neon-blue); }
+            100% { text-shadow: -0.05em 0 0 var(--neon-pink), 0.05em -0.05em 0 var(--neon-blue); }
+        }
+        
+        /* Chat interface */
+        .chat-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .message {
+            display: flex;
+            margin: 15px 0;
+            align-items: flex-start;
+        }
+        .user-msg { justify-content: flex-end; }
+        .bot-msg { justify-content: flex-start; }
+        .msg-bubble {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 20px;
+            line-height: 1.5;
+        }
+        .user-msg .msg-bubble {
+            background: linear-gradient(135deg, var(--neon-pink), #ff00aa);
+            border-bottom-right-radius: 5px;
+        }
+        .bot-msg .msg-bubble {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom-left-radius: 5px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+        .emoji-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .emoji-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .emoji-btn:hover {
+            transform: scale(1.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Pricing in memes */
+        .meme-pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 50px 0;
+        }
+        .meme-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .meme-card:hover {
+            border-color: var(--neon-pink);
+            transform: translateY(-5px);
+        }
+        .meme-card h3 { font-size: 1.8rem; margin: 15px 0; }
+        .meme-price {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 15px 0;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .glitch { font-size: 2.5rem; }
+            .msg-bubble { max-width: 85%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero -->
+        <header style="text-align: center; padding: 60px 0;">
+            <h1 class="glitch">EmojiTherapist 🫂</h1>
+            <p style="font-size: 1.3rem; opacity: 0.9; max-width: 600px; margin: 20px auto;">
+                AI therapy that speaks your language. No "how does that make you feel?" 
+                Just 🫂, 📝, and real talk.
+            </p>
+            <div style="margin: 30px 0;">
+                <button style="background: linear-gradient(135deg, var(--neon-pink), #ff00aa); 
+                               border: none; padding: 15px 40px; border-radius: 50px; 
+                               font-size: 1.2rem; font-weight: bold; cursor: pointer;">
+                    😮‍💨 Start Free Session
+                </button>
+                <p style="margin-top: 10px; opacity: 0.7;">No signup. No credit card. Just help.</p>
+            </div>
+        </header>
+        
+        <!-- Live Demo -->
+        <section>
+            <h2 style="font-size: 2.5rem; text-align: center; margin: 40px 0;">Try It RN</h2>
+            <div class="chat-container">
+                <!-- Chat messages -->
+                <div class="message user-msg">
+                    <div class="msg-bubble">
+                        idk i just feel 😮‍💨😔 everything is too much rn
+                    </div>
+                </div>
+                <div class="message bot-msg">
+                    <div class="msg-bubble">
+                        i feel u. that's valid af 🫂<br>
+                        wanna break it down or just vent?<br>
+                        👇 pick your vibe:
+                    </div>
+                </div>
+                
+                <!-- Emoji response buttons -->
+                <div class="emoji-row">
+                    <button class="emoji-btn">😮‍💨</button>
+                    <button class="emoji-btn">💀</button>
+                    <button class="emoji-btn">😔</button>
+                    <button class="emoji-btn">🫠</button>
+                    <button class="emoji-btn">🥲</button>
+                    <button class="emoji-btn">😤</button>
+                    <button class="emoji-btn">🤝</button>
+                    <button class="emoji-btn">👂</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How it works -->
+        <section style="margin: 80px 0;">
+            <h2 style="font-size: 2.5rem; text-align: center;">How It Works</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+                        gap: 30px; margin-top: 40px;">
+                <div style="text-align: center; padding: 25px;">
+                    <div style="font-size: 3rem;">😮‍💨</div>
+                    <h3>1. You Vent</h3>
+                    <p style="opacity: 0.8;">Type, use emojis, or voice note. We get it.</p>
+                </div>
+                <div style="text-align: center; padding: 25px;">
+                    <div style="font-size: 3rem;">🤖</div>
+                    <h3>2. AI Gets You</h3>
+                    <p style="opacity: 0.8;">Trained on real Gen Z convos, not textbook therapy.</p>
+                </div>
+                <div style="text-align: center; padding: 25px;">
+                    <div style="font-size: 3rem;">🫂</div>
+                    <h3>3. Real Tools</h3>
+                    <p style="opacity: 0.8;">Get coping strategies that actually work for you.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing -->
+        <section>
+            <h2 style="font-size: 2.5rem; text-align: center;">Choose Your Vibe</h2>
+            <div class="meme-pricing">
+                <div class="meme-card">
+                    <div style="font-size: 3rem;">🆓</div>
+                    <h3>Just Vent</h3>
+                    <div class="meme-price">$0</div>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li>✅ 10 sessions/month</li>
+                        <li>✅ Basic coping tools</li>
+                        <li>✅ Anonymous</li>
+                        <li>❌ No voice notes</li>
+                    </ul>
+                    <button style="width: 100%; margin-top: 20px; padding: 12px; 
+                                   background: transparent; border: 2px solid var(--neon-blue); 
+                                   color: white; border-radius: 50px; cursor: pointer;">
+                        Start Free
+                    </button>
+                </div>
+                
+                <div class="meme-card" style="border-color: var(--neon-pink);">
+                    <div style="font-size: 3rem;">🫂</div>
+                    <h3>Actually Help</h3>
+                    <div class="meme-price">$9.99</div>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li>✅ Unlimited sessions</li>
+                        <li>✅ Voice note support</li>
+                        <li>✅ Personalized plans</li>
+                        <li>✅ Crisis resources</li>
+                        <li>✅ Export to share w/ real therapist</li>
+                    </ul>
+                    <button style="width: 100%; margin-top: 20px; padding: 12px; 
+                                   background: linear-gradient(135deg, var(--neon-pink), #ff00aa); 
+                                   border: none; color: white; border-radius: 50px; cursor: pointer;
+                                   font-weight: bold;">
+                        Most Popular
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Proof -->
+        <section style="margin: 80px 0; text-align: center;">
+            <h2 style="font-size: 2rem; margin-bottom: 40px;">Real Teens, Real Results</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+                        gap: 20px; font-style: italic;">
+                <div style="padding: 25px; background: rgba(255,255,255,0.05); border-radius: 15px;">
+                    "literally saved me during finals 😭🙏 better than my school counselor"
+                    <div style="margin-top: 15px; opacity: 0.7;">- Alex, 17</div>
+                </div>
+                <div style="padding: 25px; background: rgba(255,255,255,0.05); border-radius: 15px;">
+                    "my therapist doesn't get internet culture but this bot does 💀"
+                    <div style="margin-top: 15px; opacity: 0.7;">- Jamie, 19</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Final CTA -->
+        <footer style="text-align: center; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+            <h2 style="font-size: 2.5rem;">Therapy Should Speak Your Language</h2>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 20px auto; opacity: 0.8;">
+                Traditional therapy has a 3-month waitlist and costs $200/session.<br>
+                We're here now. We get it. And we speak emoji.
+            </p>
+            <button style="background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue)); 
+                           border: none; padding: 18px 50px; border-radius: 50px; 
+                           font-size: 1.3rem; font-weight: bold; margin: 30px 0; cursor: pointer;">
+                😮‍💨 Start Free Session
+            </button>
+            <p style="opacity: 0.6;">© 2025 EmojiTherapist. Not a replacement for emergency care.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Demo chat interaction
+        const emojiBtns = document.querySelectorAll('.emoji-btn');
+        const chatContainer = document.querySelector('.chat-container');
+        
+        emojiBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Add user selection
+                const userMsg = document.createElement('div');
+                userMsg.className = 'message user-msg';
+                userMsg.innerHTML = `<div class="msg-bubble">${this.textContent}</div>`;
+                chatContainer.appendChild(userMsg);
+                
+                // AI response
+                setTimeout(() => {
+                    const responses = [
+                        "that's real. wanna talk about it or just sit with the feeling? 🫂",
+                        "felt that. sometimes everything just hits at once 😔",
+                        "valid. you're not alone in this 🤝",
+                        "appreciate you sharing that. proud of you for checking in 👏",
+                        "it's okay to not be okay. we can work through this 🫂"
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    
+                    const botMsg = document.createElement('div');
+                    botMsg.className = 'message bot-msg';
+                    botMsg.innerHTML = `<div class="msg-bubble">${randomResponse}</div>`;
+                    chatContainer.appendChild(botMsg);
+                    
+                    // Scroll to bottom
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }, 800);
+            });
+        });
+    </script>
+</body>
+</html>
